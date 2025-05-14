@@ -120,7 +120,43 @@ Desarrollar un sistema de gestión de biblioteca utilizando Spring Framework, im
 
 ## 👨‍🎓 Información del Alumno
 - **Nombre y Apellido**: Matias Boldrini
-- **Legajo**: 63626
+- **Legajo**: 61073
+
+## 🚀 Instrucciones de Ejecución
+
+### Requisitos Previos
+- Java 21 instalado
+- Maven 3.9.0 o superior
+- IDE compatible con Spring Boot (recomendado: IntelliJ IDEA o Eclipse)
+
+### Pasos para Ejecutar
+1. Clonar el repositorio:
+```bash
+git clone [URL del repositorio]
+cd [nombre-del-directorio]
+```
+
+2. Compilar el proyecto:
+```bash
+mvn clean install
+```
+
+3. Ejecutar la aplicación:
+```bash
+mvn spring-boot:run
+```
+
+4. La aplicación estará disponible en:
+```
+http://localhost:8080
+```
+
+### Endpoints Disponibles
+- GET /api/libros - Obtener todos los libros
+- GET /api/libros/{id} - Obtener un libro por ID
+- POST /api/libros - Crear un nuevo libro
+- PUT /api/libros/{id} - Actualizar un libro
+- DELETE /api/libros/{id} - Eliminar un libro
 
 ## 📋 Requisitos Previos
 
