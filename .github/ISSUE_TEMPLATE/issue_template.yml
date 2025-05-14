@@ -1,11 +1,65 @@
 ---
-name: Issue Template
-about: Template para crear nuevos issues
-title: ''
-labels: ''
-assignees: ''
+name: Tarea TP4 - Sistema de Biblioteca (Spring)
+description: Crear una nueva tarea del TP4 vinculada a un milestone y al project correspondiente.
 
----
+title: "[Tarea] "
+labels: ["tarea"]
+assignees:
+  -
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **Completá los campos siguientes para registrar esta tarea correctamente.**  
+        Recordá asociarla a un Milestone y trabajar desde una rama específica.
+
+  - type: input
+    id: objetivo
+    attributes:
+      label: Objetivo
+      description: ¿Qué se busca lograr con esta tarea?
+      placeholder: Implementar la clase LibroController con endpoints básicos
+    validations:
+      required: true
+
+  - type: textarea
+    id: detalles
+    attributes:
+      label: Detalles de implementación
+      description: Explicá brevemente qué vas a hacer o modificar.
+      placeholder: |
+        - Crear clase LibroController
+        - Anotar con @RestController y @RequestMapping
+        - Inyectar LibroService
+        - Implementar endpoints GET y POST
+        - Probar con Postman o Insomnia
+    validations:
+      required: true
+
+  - type: dropdown
+    id: milestone
+    attributes:
+      label: Etapa / Milestone
+      description: Seleccioná la etapa del trabajo a la que corresponde la tarea.
+      options:
+        - Etapa 1: Configuración y Modelos
+        - Etapa 2: Repositories y Services
+        - Etapa 3: Controllers
+        - Etapa 4: Testing y Documentación
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist de finalización
+      description: Marcá lo que debe cumplirse para cerrar esta tarea.
+      options:
+        - label: La funcionalidad fue implementada correctamente.
+        - label: Se realizaron pruebas (unitarias o manuales).
+        - label: Se subió la implementación en una rama correspondiente a la etapa.
+        - label: Se abrió un Pull Request asociado que menciona este Issue.
+        - label: Se agregó documentación si era necesaria.
 
 ## Descripción
 [Describe brevemente el propósito de este issue]
