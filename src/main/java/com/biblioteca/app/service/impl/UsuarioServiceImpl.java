@@ -22,6 +22,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public Usuario buscarPorId(Long id) {
+        return usuarioRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("No se encontró el usuario con ID: " + id));
+    }
+
+    @Override
     public List<Usuario> obtenerTodos() {
         return usuarioRepository.findAll();
     }
