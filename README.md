@@ -119,8 +119,8 @@ Desarrollar un sistema de gestión de biblioteca utilizando Spring Framework, im
 > 💡 **Nota**: Esta estimación considera la experiencia adquirida en trabajos anteriores y la complejidad de implementar una arquitectura en capas con Spring Framework. El tiempo se ha ajustado considerando que no se requiere implementación de persistencia real.
 
 ## 👨‍🎓 Información del Alumno
-- **Nombre y Apellido**: [Nombre y Apellido del Alumno]
-- **Legajo**: [Número de Legajo]
+- **Nombre y Apellido**: Matias Boldrini
+- **Legajo**: 63626
 
 ## 📋 Requisitos Previos
 
@@ -535,3 +535,103 @@ El uso de Inteligencia Artificial (IA) en este trabajo práctico debe seguir las
 ## 📝 Licencia
 
 Este trabajo es parte del curso de Programación II de Ingeniería en Informática. Uso educativo únicamente.
+
+## 📖 Guía de Uso
+
+### Requisitos Previos
+1. Tener instalado Java 21 o superior
+2. Tener instalado Maven 3.9.0 o superior
+3. Tener un IDE compatible con Spring Boot (recomendado: IntelliJ IDEA o VS Code)
+
+### Cómo Ejecutar el Proyecto
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/um-programacion-ii/programacion-2-trabajo-practico-4-MatiasBoldrini.git
+   cd programacion-2-trabajo-practico-4-MatiasBoldrini
+   ```
+
+2. Compilar el proyecto:
+   ```bash
+   mvn clean install
+   ```
+
+3. Ejecutar la aplicación:
+   ```bash
+   mvn spring-boot:run
+   ```
+
+4. La aplicación estará disponible en `http://localhost:8080`
+
+### Endpoints Disponibles
+
+#### Libros
+- `GET /api/libros`: Obtiene todos los libros
+- `GET /api/libros/{id}`: Obtiene un libro por ID
+- `GET /api/libros/isbn/{isbn}`: Obtiene un libro por ISBN
+- `GET /api/libros/disponibles`: Obtiene los libros disponibles
+- `POST /api/libros`: Crea un nuevo libro
+- `PUT /api/libros/{id}`: Actualiza un libro
+- `DELETE /api/libros/{id}`: Elimina un libro
+- `PATCH /api/libros/{id}/reparacion`: Envía un libro a reparación
+
+#### Usuarios
+- `GET /api/usuarios`: Obtiene todos los usuarios
+- `GET /api/usuarios/{id}`: Obtiene un usuario por ID
+- `GET /api/usuarios/email/{email}`: Obtiene un usuario por email
+- `GET /api/usuarios/activos`: Obtiene los usuarios activos
+- `POST /api/usuarios`: Crea un nuevo usuario
+- `PUT /api/usuarios/{id}`: Actualiza un usuario
+- `DELETE /api/usuarios/{id}`: Elimina un usuario
+- `PATCH /api/usuarios/{id}/suspender`: Suspende un usuario
+
+#### Préstamos
+- `GET /api/prestamos`: Obtiene todos los préstamos
+- `GET /api/prestamos/{id}`: Obtiene un préstamo por ID
+- `GET /api/prestamos/activos`: Obtiene los préstamos activos
+- `GET /api/prestamos/vencidos`: Obtiene los préstamos vencidos
+- `GET /api/prestamos/usuario/{usuarioId}`: Obtiene los préstamos de un usuario
+- `POST /api/prestamos`: Realiza un nuevo préstamo
+- `PATCH /api/prestamos/{id}/devolver`: Registra la devolución de un libro
+- `DELETE /api/prestamos/{id}`: Elimina un préstamo
+
+### Ejemplos de Uso
+
+#### Crear un Libro
+```bash
+curl -X POST http://localhost:8080/api/libros \
+  -H "Content-Type: application/json" \
+  -d '{
+    "isbn": "978-0-13-468599-1",
+    "titulo": "Clean Code",
+    "autor": "Robert C. Martin",
+    "estado": "DISPONIBLE"
+  }'
+```
+
+#### Crear un Usuario
+```bash
+curl -X POST http://localhost:8080/api/usuarios \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nombre": "Juan Perez",
+    "email": "juan@mail.com",
+    "estado": "ACTIVO"
+  }'
+```
+
+#### Realizar un Préstamo
+```bash
+curl -X POST "http://localhost:8080/api/prestamos?libroId=1&usuarioId=1"
+```
+
+### Notas Importantes
+- Los IDs se generan automáticamente
+- Un usuario puede tener máximo 3 libros prestados
+- Los préstamos tienen una duración de 7 días
+- Un libro prestado no puede ser enviado a reparación
+- Un usuario suspendido no puede realizar préstamos
+
+### Manejo de Errores
+- 400 Bad Request: Datos inválidos o regla de negocio violada
+- 404 Not Found: Recurso no encontrado
+- 409 Conflict: Estado inconsistente (ej: libro ya prestado)
