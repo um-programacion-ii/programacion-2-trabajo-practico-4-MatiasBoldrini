@@ -6,6 +6,8 @@ import java.util.List;
 public interface UsuarioService {
     Usuario buscarPorEmail(String email);
 
+    Usuario buscarPorId(Long id);
+
     List<Usuario> obtenerTodos();
 
     Usuario guardar(Usuario usuario);
